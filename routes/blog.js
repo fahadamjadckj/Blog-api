@@ -6,9 +6,6 @@ const cors = require('cors');
 const app = require('../app');
 const compression = require('compression');
 
-// const apicache = require('apicache');
-// let cache = apicache.middleware;
-
 router.use(compression());
 
 router.post('/authenticate', authController.handleAuth) 
