@@ -1,5 +1,6 @@
 const main_dirname = require('../directory_path');
 const path = require('path');
+const debug = require('debug')('image');
 
 /**
  * 
@@ -20,10 +21,8 @@ function get_image(req, res, next) {
 
     res.sendFile(filename, options, function(err) {
         if(err) {
-            console.log(err);
-        }
-        else{
-            console.log('file sent');
+            debug('Image sending error')
+            next(err);
         }
     });
 
