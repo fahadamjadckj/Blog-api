@@ -37,8 +37,10 @@ module.exports.create_post = [
     body('html', 'no html').trim().isLength({min: 1}).escape(),
     body('date_published').trim().optional({checkFalsy: true}).escape(),
     body('author').trim().optional({checkFalsy: true}).escape(),
+    body('post_image', 'no image specified'),
 
     (req, res, next) => {
+
         const errors = validationResult(req);
 
         if(!errors.isEmpty()) {
@@ -50,6 +52,7 @@ module.exports.create_post = [
             const NewPost = new Post({
                 title: req.body.title,
                 html: req.body.html,
+                image: req.file.filename
             });
 
             if(req.body.date_published!=='') {

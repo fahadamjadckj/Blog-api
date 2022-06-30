@@ -7,6 +7,7 @@ require('dotenv').config();
 const Database = require('./databaseUtils/dbConfig');
 const cors = require('cors');
 const helmet = require('helmet');
+const Post = require('./models/post');
 
 
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api', blogRouter);
+
 
 
 // catch 404 and forward to error handler
