@@ -11,7 +11,7 @@ const debug = require('debug')('image');
 function get_image(req, res, next) {
     const filename = req.params.imageid;
     const options = {
-        root: '/home/fahad/Blog-api/images',
+        root: path.join(main_dirname, '/images'),
         dotfiles: 'deny',
         headers: {
             'x-timestamp': Date.now(),
