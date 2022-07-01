@@ -34,7 +34,7 @@ module.exports.list_posts = function(req, res, next) {
 module.exports.create_post = [
 
     body('title', 'no title').trim().isLength({min: 1}).escape(),
-    body('html', 'no html').trim().isLength({min: 1}).escape(),
+    body('html', 'no html').trim().isLength({min: 1}),
     body('date_published').trim().optional({checkFalsy: true}).escape(),
     body('author').trim().optional({checkFalsy: true}).escape(),
     body('post_image', 'no image specified'),
