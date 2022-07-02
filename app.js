@@ -6,7 +6,6 @@ const logger = require('morgan');
 require('dotenv').config();
 const Database = require('./databaseUtils/dbConfig');
 const cors = require('cors');
-const helmet = require('helmet');
 const Post = require('./models/post');
 
 
@@ -25,7 +24,6 @@ BlogDatabase.start();
 /**
  *  express configuration and middleware:
  */
-app.use(helmet());
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
